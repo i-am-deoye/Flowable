@@ -22,7 +22,7 @@ dependencies {
 
 # Usage
 
-You need to extend *AbstractFlowableActivity abstract class*, and also register all required fragment classes. While this is done, it is mandatory to specify an **id name** of parent layout in your activity layout. This 
+You need to extend *AbstractFlowableActivity abstract class*, and also register all required fragment classes. While this is done, it is mandatory to specify an **id name** of parent layout in your activity layout.
 
 ```
 public class MainActivity extends AbstractFlowableActivity {
