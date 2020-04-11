@@ -157,6 +157,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
         if (Objects.nonNull(registryBuilder) && !session.isEmpty() && (session.size() > 1) ) {
             session.removeAllElements();
             innerPrevious(registryBuilder.getRootIdentifier());
+            session.add(registryBuilder.getRootIdentifier());
         } else {
             throw new RuntimeException("Registry Builder not configured");
         }
