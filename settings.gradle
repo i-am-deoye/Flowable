@@ -1,0 +1,2 @@
+include ':app', ':java', ':flowjava'
+rootProject.name='flowablejava'
