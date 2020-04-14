@@ -1,4 +1,4 @@
-Flowable helps the interactions, which users navigate across any point where an event is being taking place from differient parts of contents in the app.
+Flowable helps the interactions, which users navigate across any point where an event is being taking place from different parts of contents in the app.
 
 [![](https://jitpack.io/v/i-am-deoye/Flowable.svg)](https://jitpack.io/#i-am-deoye/Flowable)
 
