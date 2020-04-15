@@ -1,6 +1,7 @@
 package moses_ayankoya.flowjava.lib;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +26,8 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
         registryBuilder = register();
         init();
     }
+
+
 
     private void init() {
         if (session.isEmpty()) {
