@@ -19,6 +19,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
     private Stack<Integer> session = new Stack<>();
     private Integer currentFragmentId;
     private String currentFragmentIdStateKey = "current:fragment:id:state:key";
+    private String currentModelIdStateKey = "current:model:id:state:key";
     private Serializable currentModel;
 
 
@@ -38,7 +39,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
         else _savedInstanceState = savedInstanceState;
 
         _savedInstanceState.putInt(currentFragmentIdStateKey, currentFragmentId);
-        _savedInstanceState.putSerializable("", currentModel);
+        _savedInstanceState.putSerializable(currentModelIdStateKey, currentModel);
         super.onSaveInstanceState(_savedInstanceState);
 
     }
@@ -47,7 +48,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Integer currentId = savedInstanceState.getInt(currentFragmentIdStateKey);
-        Serializable currentModel = savedInstanceState.getSerializable("");
+        Serializable currentModel = savedInstanceState.getSerializable(currentModelIdStateKey);
         if (Objects.isNull(currentId)) return;
         currentFragmentId = currentId;
         this.currentModel = currentModel;

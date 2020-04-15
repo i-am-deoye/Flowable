@@ -11,7 +11,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="5200b03efccc7547" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="3.2_HVGA_slider_ADP1_API_29" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -24,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flowjava/src/main/java/moses_ayankoya/flowjava/lib/AbstractFlowableActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1665">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="225">
+              <caret line="15" column="116" selection-start-line="15" selection-start-column="116" selection-end-line="15" selection-end-column="116" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,6 +191,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-219" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23748669" />
@@ -206,7 +207,7 @@
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.32953367" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.10569948" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Build" order="8" weight="0.26839378" />
@@ -245,13 +246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flowjava/src/main/java/moses_ayankoya/flowjava/lib/FlowableNavigationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flowjava/src/main/java/moses_ayankoya/flowjava/lib/FlowableFragmentRegistry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -259,10 +253,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/flowjava/src/main/java/moses_ayankoya/flowjava/lib/FlowableNavigationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flowjava/src/main/java/moses_ayankoya/flowjava/lib/AbstractFlowableActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1665">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="225">
+          <caret line="15" column="116" selection-start-line="15" selection-start-column="116" selection-end-line="15" selection-end-column="116" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
