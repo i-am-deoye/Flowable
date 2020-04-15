@@ -18,6 +18,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
     private Integer frameId;
     private Stack<Integer> session = new Stack<>();
     private Integer currentFragmentId;
+    private String currentFragmentIdStateKey = "current:fragment:id:state:key";
 
 
     @Override
@@ -27,6 +28,26 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
         init();
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        if (Objects.isNull(currentFragmentId)) return;
+        Bundle _savedInstanceState;
+
+        if (Objects.isNull(savedInstanceState)) _savedInstanceState = new Bundle();
+        else _savedInstanceState = savedInstanceState;
+
+        _savedInstanceState.putInt(currentFragmentIdStateKey, currentFragmentId);
+        super.onSaveInstanceState(_savedInstanceState);
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Integer currentId = savedInstanceState.getInt(currentFragmentIdStateKey);
+        if (Objects.isNull(currentId)) return;
+        currentFragmentId = currentId;
+    }
 
 
     private void init() {
