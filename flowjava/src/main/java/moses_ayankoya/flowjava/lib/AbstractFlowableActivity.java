@@ -13,7 +13,10 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Stack;
 
-public abstract class AbstractFlowableActivity extends AppCompatActivity implements FlowableFragmentRegistry, FlowableNavigationController {
+import dagger.android.DaggerActivity;
+import dagger.android.support.DaggerAppCompatActivity;
+
+public abstract class AbstractFlowableActivity extends DaggerAppCompatActivity implements FlowableFragmentRegistry, FlowableNavigationController {
     private Registry.Builder registryBuilder;
     private Integer frameId;
     private Stack<Integer> session = new Stack<>();
