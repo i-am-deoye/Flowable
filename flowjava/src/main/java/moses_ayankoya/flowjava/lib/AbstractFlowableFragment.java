@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class AbstractFlowableFragment extends Fragment {
+import dagger.android.support.DaggerFragment;
+
+public abstract class AbstractFlowableFragment extends DaggerFragment {
     private final String modelKey = "model:key:any:type";
     private FlowableNavigationController flowableNavigationController;
 
