@@ -156,7 +156,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
             if (session.size() == 1) return;
             Integer beforePrevious = session.pop();
             sessionFragment.remove(beforePrevious);
-            Integer previousFragmentId = session.pop();
+            Integer previousFragmentId = session.elementAt(session.size() - 1);
 
             if (registryBuilder.getContainer().containsKey(previousFragmentId)) {
                 innerPrevious(previousFragmentId);
