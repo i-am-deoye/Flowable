@@ -1,4 +1,4 @@
-Flowable helps the interactions, which users navigate across any point where an event is being taking place from differient parts of contents in the app.
+Flowable helps the interactions, which users navigate across any point where an event is being taking place from different parts of contents in the app.
 
 [![](https://jitpack.io/v/i-am-deoye/Flowable.svg)](https://jitpack.io/#i-am-deoye/Flowable)
 
@@ -16,13 +16,13 @@ allprojects {
 #### Step 2. Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.i-am-deoye:Flowable:1.0.0'
+	        implementation 'com.github.i-am-deoye:Flowable:1.0.4'
 	}
 ```
 
 # Usage
 
-You need to extend *AbstractFlowableActivity abstract class*, and also register all required fragment classes. While this is done, it is mandatory to specify an **id name** of parent layout in your activity layout. This 
+You need to extend *AbstractFlowableActivity abstract class*, and also register all required fragment classes. While this is done, it is mandatory to specify an **id name** of parent layout in your activity layout.
 
 ```
 public class MainActivity extends AbstractFlowableActivity {
