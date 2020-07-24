@@ -1,7 +1,6 @@
 package moses_ayankoya.flowjava.lib;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,16 +9,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.Stack;
 
-import dagger.android.DaggerActivity;
-import dagger.android.support.DaggerAppCompatActivity;
 
-public abstract class AbstractFlowableActivity extends DaggerAppCompatActivity implements FlowableFragmentRegistry, FlowableNavigationController {
+public abstract class AbstractFlowableActivity extends AppCompatActivity implements FlowableFragmentRegistry, FlowableNavigationController {
     private Registry.Builder registryBuilder;
     private Integer frameId;
     private Stack<Integer> session = new Stack<>();
+    private Map<Integer, AbstractFlowableFragment> sessionFragment = new HashMap<>();
     private Integer currentFragmentId;
     private String currentFragmentIdStateKey = "current:fragment:id:state:key";
     private String currentModelIdStateKey = "current:model:id:state:key";
@@ -136,6 +138,7 @@ public abstract class AbstractFlowableActivity extends DaggerAppCompatActivity i
             if (/*Objects.nonNull(currentFragmentId) && */ currentFragmentId != fragmentIdentifier) {
                 currentFragmentId = fragmentIdentifier;
                 session.add(currentFragmentId);
+                sessionFragment.put(currentFragmentId, fragment);
             }
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -151,16 +154,9 @@ public abstract class AbstractFlowableActivity extends DaggerAppCompatActivity i
         if (Objects.nonNull(registryBuilder) && !session.isEmpty()) {
 
             if (session.size() == 1) return;
-            int lastIndex = session.size() - 1;
-            session.remove(lastIndex);
-            Integer previousFragmentId;
-
-            if (session.size() > 1) {
-                previousFragmentId = session.pop();
-            } else {
-                previousFragmentId = session.elementAt(0);
-            }
-
+            Integer beforePrevious = session.pop();
+            sessionFragment.remove(beforePrevious);
+            Integer previousFragmentId = session.pop();
 
             if (registryBuilder.getContainer().containsKey(previousFragmentId)) {
                 innerPrevious(previousFragmentId);
@@ -179,13 +175,11 @@ public abstract class AbstractFlowableActivity extends DaggerAppCompatActivity i
         try {
 
             headerTitle(registry.getHeaderTitle());
-            AbstractFlowableFragment fragment = (AbstractFlowableFragment) registry.getFragmentClass().newInstance();
+            AbstractFlowableFragment fragment = sessionFragment.get(previousFragmentId);
             replaceFragmentInActivity(fragment);
             currentFragmentId = previousFragmentId;
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -196,6 +190,10 @@ public abstract class AbstractFlowableActivity extends DaggerAppCompatActivity i
             session.removeAllElements();
             innerPrevious(registryBuilder.getRootIdentifier());
             session.add(registryBuilder.getRootIdentifier());
+            Set<Integer> sessionFragmentKeys = sessionFragment.keySet();
+            for (Integer key : sessionFragmentKeys) {
+                sessionFragment.remove(key);
+            }
         } else {
             throw new RuntimeException("Registry Builder not configured");
         }
