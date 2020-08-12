@@ -108,7 +108,8 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
 
     @Override
     public <T extends Serializable> void present(Integer fragmentRootId, T model) {
-        if (Objects.nonNull(registryBuilder) && (currentFragmentId != fragmentRootId)) {
+        if (Objects.nonNull(registryBuilder)) {
+            if ((currentFragmentId.equals(fragmentRootId))) return;
             if (registryBuilder.getContainer().containsKey(fragmentRootId)) {
                 Registry registry = registryBuilder.getContainer().get(fragmentRootId);
                 innerNextTo(registry, model, fragmentRootId);
