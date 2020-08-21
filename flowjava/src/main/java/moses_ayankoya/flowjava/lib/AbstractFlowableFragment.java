@@ -60,5 +60,8 @@ public abstract class AbstractFlowableFragment extends Fragment {
         flowableNavigationController.toRoot();
     }
 
-
+    final protected void dismissActivity() {
+        Objects.requireNonNull(flowableNavigationController);
+        flowableNavigationController.dismiss();
+    }
 }
