@@ -26,6 +26,7 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
     private String currentFragmentIdStateKey = "current:fragment:id:state:key";
     private String currentModelIdStateKey = "current:model:id:state:key";
     private Serializable currentModel;
+    private Boolean shouldDismissActivity = false;
 
 
     @Override
@@ -191,22 +192,29 @@ public abstract class AbstractFlowableActivity extends AppCompatActivity impleme
             session.removeAllElements();
             innerPrevious(registryBuilder.getRootIdentifier());
             session.add(registryBuilder.getRootIdentifier());
-            Set<Integer> sessionFragmentKeys = sessionFragment.keySet();
-            for (Integer key : sessionFragmentKeys) {
-                sessionFragment.remove(key);
-            }
+            sessionFragment.keySet().removeAll(sessionFragment.keySet());
         } else {
             throw new RuntimeException("Registry Builder not configured");
         }
     }
 
     @Override
-    public void onBackPressed() {
-        if (session.size() == 1) {
-            super.onBackPressed();
-            return;
-        }
+    public void dismiss() {
+        shouldDismissActivity = true;
+        onBackPressed();
+    }
 
-        previous();
+    @Override
+    public void onBackPressed() {
+        if (shouldDismissActivity) {
+            super.onBackPressed();
+        } else {
+            if (session.size() == 1) {
+                super.onBackPressed();
+                return;
+            }
+
+            previous();
+        }
     }
 }

@@ -6,5 +6,6 @@ public interface FlowableNavigationController {
     <T extends Serializable>void present(Integer fragmentRootId, T model);
     void previous();
     void toRoot();
+    void dismiss();
 }
 
