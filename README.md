@@ -16,7 +16,7 @@ allprojects {
 #### Step 2. Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.i-am-deoye:Flowable:1.0.4'
+	        implementation 'com.github.i-am-deoye:Flowable:1.0.8'
 	}
 ```
 
